@@ -20,3 +20,21 @@ p,
 li {
   @apply opacity-75;
 }
+
+.navbar {
+  position: absolute;
+  top: -100%;
+  right: 0;
+  /* left: 0; */
+  bottom: 0;
+  width: 50%;
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.navbar.open {
+  top: 5rem;
+  z-index: 99;
+  background-color: #fff;
+}
