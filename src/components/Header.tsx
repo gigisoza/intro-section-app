@@ -29,15 +29,15 @@ const Header = () => {
   return (
     <>
       <header className="p-5 flex items-center justify-between">
-        <div>
-          <img src={logo} alt="logo" />
-          <nav className={`navbar ${toggle ? "open" : ""}`}>
-            <div>
+        <div className="lg:flex lg:items-start lg:justify-start">
+          <img src={logo} alt="logo" className="lg:mr-5" />
+          <nav className={`navbar ${toggle ? "open" : ""} text-slate-400`}>
+            <div className="mb-2 lg:mb-0">
               <button
                 onClick={handleOpenFeatures}
                 className="flex items-center justify-start"
               >
-                Features{" "}
+                Features
                 {openFeatures ? (
                   <img src={arrowDown} className="ml-2" />
                 ) : (
@@ -45,7 +45,7 @@ const Header = () => {
                 )}
               </button>
               {openFeatures && (
-                <ul className="mt-2 ml-3">
+                <ul className="mt-2 ml-3 lg:ml-0 lg:p-3 lg:shadow">
                   <li className="flex items-center justify-start text-sm mb-2">
                     <img src={todolist} className="mr-2" />
                     Todo List
@@ -65,7 +65,7 @@ const Header = () => {
                 </ul>
               )}
             </div>
-            <div>
+            <div className="mb-2 lg:mb-0">
               <button
                 onClick={handleOpenCompany}
                 className="flex items-center justify-start"
@@ -78,7 +78,7 @@ const Header = () => {
                 )}
               </button>
               {openCompany && (
-                <ul className="mt-2 ml-3">
+                <ul className="mt-2 ml-3 lg:ml-0 lg:p-3 lg:shadow">
                   <li className="flex items-center justify-start text-sm mb-2">
                     History
                   </li>
@@ -100,15 +100,17 @@ const Header = () => {
           </nav>
         </div>
 
-        <div>
+        <div className="lg:hidden">
           <button onClick={handleToggle}>
             {toggle ? <img src={closeMenu} /> : <img src={menuOpen} />}
           </button>
         </div>
 
         <div className="hidden lg:block">
-          <button>Login</button>
-          <button>Sign Up</button>
+          <button className="mr-10 opacity-75">Login</button>
+          <button className="border-2 border-black opacity-75 px-6 py-2 rounded-2xl">
+            Register
+          </button>
         </div>
       </header>
     </>
