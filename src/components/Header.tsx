@@ -7,24 +7,28 @@ import todolist from "../images/icon-todo.svg";
 import calendar from "../images/icon-calendar.svg";
 import reminders from "../images/icon-reminders.svg";
 import planning from "../images/icon-planning.svg";
-import { useState } from "react";
 
-const Header = () => {
-  const [toggle, setToggle] = useState<boolean>(false);
-  const [openFeatures, setOpenFeatures] = useState<boolean>(false);
-  const [openCompany, setOpenCompany] = useState<boolean>(false);
+interface Props {
+  toggle: boolean;
+  setToggle: React.Dispatch<React.SetStateAction<boolean>>;
+  openFeatures: boolean;
+  setOpenFeatures: React.Dispatch<React.SetStateAction<boolean>>;
+  openCompany: boolean;
+  setOpenCompany: React.Dispatch<React.SetStateAction<boolean>>;
+  handleToggle: () => void;
+  handleOpenFeatures: () => void;
+  handleOpenCompany: () => void;
+}
 
-  const handleToggle = () => {
-    setToggle(!toggle);
-  };
-
-  const handleOpenFeatures = () => {
-    setOpenFeatures(!openFeatures);
-  };
-
-  const handleOpenCompany = () => {
-    setOpenCompany(!openCompany);
-  };
+const Header = (props: Props) => {
+  const {
+    toggle,
+    openFeatures,
+    openCompany,
+    handleToggle,
+    handleOpenFeatures,
+    handleOpenCompany,
+  } = props;
 
   return (
     <>
@@ -96,6 +100,13 @@ const Header = () => {
             </div>
             <div>
               <button>About</button>
+            </div>
+
+            <div className="lg:hidden grid grid-flow-row justify-center mt-8">
+              <button className="mr-10 opacity-75 ml-8">Login</button>
+              <button className="border-2 border-black opacity-75 sm:px-24 px-8 py-2 rounded-2xl mt-4">
+                Register
+              </button>
             </div>
           </nav>
         </div>
